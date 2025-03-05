@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[3]:
 
 
 import pandas as pd
@@ -45,14 +45,14 @@ X=data[['Total', 'Discounts', 'Brewed_Coffee_12_oz',
 
 x, xt, y, yt = train_test_split(X,Y, test_size=0.1, random_state=42)
 
-xgb=XGBClassifier(
+model=XGBClassifier(
     n_estimators=500,
     max_depth=30,
     learning_rate=0.50,
     objective='binary:logistic'
 )
 
-modelFit = xgb.fit(x,y)
+modelFit = model.fit(x,y)
 
 pred=modelFit.predict(xt)
 
