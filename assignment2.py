@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
+# In[2]:
 
 
 import pandas as pd
@@ -43,6 +43,8 @@ X=data[['Total', 'Discounts', 'Brewed_Coffee_12_oz',
        'Whipped_Topping', 'Starbucks_DS_Mocha', 'Hot_Chocolate_16_oz',
        'Dr_Pepper', 'Ocean_Spray_CranGrape', 'Gum_Peppermint']]
 
+x, xt, y, yt = train_test_split(X,Y, test_size=0.1, random_state=42)
+
 xgb=XGBClassifier(
     n_estimators=500,
     max_depth=30,
@@ -55,4 +57,10 @@ modelFit = xgb.fit(x,y)
 pred=modelFit.predict(xt)
 
 print(f"Accuracy score: {accuracy_score(yt,pred)*100:.2f}%")
+
+
+# In[ ]:
+
+
+
 
